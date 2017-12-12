@@ -1,0 +1,20 @@
+﻿@model List<BookReading.Models.Book>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@foreach (var book in Model)
+{
+	<h3>@book.Title</h3>
+	<p>@book.Author</p>
+	<p>@book.Description</p>
+	<p>@book.Pages</p>	
+    <p>@book.Genre</p>
+	
+	<div>
+		@Html.ActionLink("Информация", "Details", new { id = book.Id }, null)
+	</div>
+}  
+

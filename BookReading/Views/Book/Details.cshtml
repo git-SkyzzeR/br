@@ -1,0 +1,54 @@
+﻿
+@using BookReading.Models
+@model Book
+
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<fieldset>
+	<legend>Информация</legend>
+    
+	<div class="display-label">
+        @Html.DisplayNameFor(model => model.Title)
+    </div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Title)
+	</div>
+    
+	<div class="display-label">
+        @Html.DisplayNameFor(model => model.Description)
+    </div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Description)
+	</div>
+    
+	<div class="display-label">
+        @Html.DisplayNameFor(model => model.Author)
+    </div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Author)
+	</div>
+    
+	<div class="display-label">
+        @Html.DisplayNameFor(model => model.Pages)
+    </div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Pages)
+	</div>
+    
+	<div class="display-label">
+        @Html.DisplayNameFor(model => model.Genre)
+    </div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Genre)
+	</div>
+</fieldset>
+<p>
+	@Html.ActionLink("Редактировать", "Edit", new { id = Model.Id }) |
+	@Html.ActionLink("К списку книг", "List") |
+	@Html.ActionLink("Добавить отзыв", "Create", "Review", new { bookId = Model.Id }, null)
+</p>	   
+
+@Html.Partial("ReviewPartial", Model.Reviews)
